@@ -67,10 +67,13 @@ Click the bell icon in the menu bar. The menu follows your macOS language (Engli
 ## FAQ
 
 **Why does NotiMirror need Screen Recording permission?**
-To show an identical copy, NotiMirror needs to see the notification banner. It looks only at the banner, only while the banner is on screen, and never saves or sends anything.
+To show an identical copy, NotiMirror needs to see the notification banner. Banners use a glass effect that picks up color from what's behind them, so NotiMirror looks at the top-right corner of the screen where the banner appears, not just the banner itself. It does this only while a banner is on screen, and it never saves or sends anything.
 
 **Nothing happens when I use only my MacBook.**
 That's expected. NotiMirror adds copies to your *other* monitors, and the original is already on your MacBook.
+
+**Will it copy Notification Center when I open it?**
+No. NotiMirror copies only notification banners, not the Notification Center panel you open yourself.
 
 **Can I click a copy?**
 Not yet. Clicks pass through a copy to whatever is behind it. To open the notification, click the original banner.
