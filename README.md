@@ -39,7 +39,7 @@ NotiMirror fixes that. When a banner appears, the same banner shows up in the to
 1. Download the source and build it:
 
    ```bash
-   git clone <this-repo-url> NotiMirror
+   git clone https://github.com/jife-archive/NotiMirror.git
    cd NotiMirror
    ./build.sh --install
    ```

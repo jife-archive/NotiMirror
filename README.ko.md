@@ -39,7 +39,7 @@ NotiMirror를 쓰면 배너가 뜨는 순간 나머지 모니터의 우측 상�
 1. 소스를 받아서 빌드합니다.
 
    ```bash
-   git clone <이 레포 URL> NotiMirror
+   git clone https://github.com/jife-archive/NotiMirror.git
    cd NotiMirror
    ./build.sh --install
    ```
