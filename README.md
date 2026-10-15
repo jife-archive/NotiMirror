@@ -1,51 +1,99 @@
-# NotiMirror
+<p align="center">
+  <img src="docs/images/icon.png" width="128" height="128" alt="NotiMirror app icon">
+</p>
 
-macOS 알림 배너(Slack, 카카오톡, 메일 등 모든 앱)를 연결된 **모든 모니터**에 똑같이 띄워 주는 메뉴바 앱.
+<h1 align="center">NotiMirror</h1>
 
-## 동작 방식
+<p align="center">
+  See your Mac's notifications on <b>every</b> monitor.<br>
+  <b>English</b> · <a href="README.ko.md">한국어</a>
+</p>
 
-macOS는 알림 배너를 한 화면에만 띄웁니다. NotiMirror는 그 배너를 다른 모니터에 그대로 복사합니다.
+<p align="center">
+  <img src="docs/images/hero.png" alt="A notification on a MacBook also appears on two external monitors at the same time">
+</p>
 
-1. **감지**
-   - 알림 센터는 배너를 띄울 때만 화면 크기의 투명한 창을 켭니다.
-   - NotiMirror는 그 창 하나가 켜졌는지만 0.2초마다 확인합니다.
-   - 창 목록 정보만 보기 때문에 화면 내용은 보지 않고, CPU 사용률은 약 0.1%입니다.
-2. **캡처**
-   - 창이 켜져 있는 동안에만 ScreenCaptureKit으로 **그 창 하나만** 초당 30프레임으로 캡처합니다.
-   - 프레임은 저장하거나 전송하지 않고, 메모리에서 바로 화면에 그립니다.
-3. **복제**
-   - 원본이 없는 모니터마다 클릭이 통과하는 투명 창을 띄우고, 우측 상단에 원본과 같은 크기로 그립니다.
-   - 메뉴 막대 높이가 다르면 그만큼 위치를 보정합니다.
+## Never miss a notification on your other screens
 
-그래서 복제본은 원본과 같습니다.
-- 아이콘, 프로필 사진, 레이아웃, 나타나고 사라지는 애니메이션까지 같습니다.
-- 원본과 동시에 뜨고 동시에 사라집니다.
-- 집중 모드처럼 원본 배너가 뜨지 않으면 복제본도 뜨지 않습니다.
+If you use a MacBook with external monitors, macOS shows notification banners on only one screen. That's often the MacBook you aren't looking at, so it's easy to miss a Slack message, a KakaoTalk reply, or a meeting reminder.
 
-## 설치
+NotiMirror fixes that. When a banner appears, the same banner shows up in the top-right corner of every other monitor at the same moment.
 
-```bash
-./build.sh --install
-```
+## Features
 
-이렇게 하면 `~/Applications/NotiMirror.app`에 설치되고 바로 실행됩니다. 처음 실행하면 **화면 기록 권한**을 요청해요.
-- 위치: 시스템 설정 › 개인정보 보호 및 보안 › 화면 및 시스템 오디오 녹음
-- 개발 인증서로 서명하므로 다시 빌드해도 권한이 유지됩니다.
-- macOS가 주기적으로 "계속 허용할지" 다시 물어볼 수 있습니다.
+- **Looks exactly like the original.** The copy shows the same app icon, profile photo, and text, because it's a live copy of the real banner.
+- **Appears and disappears with the original.** There's no delay, and copies don't stay behind after the original is gone.
+- **Works with every app.** Slack, KakaoTalk, Messages, Mail, Calendar, and any other app that sends notifications.
+- **Follows your notification settings.** If Focus or an app's settings hide a banner, NotiMirror doesn't show it either.
+- **Stays out of your way.** It lives in the menu bar and uses almost no CPU. Clicks pass through the copies.
+- **Keeps your data private.** Nothing is saved or sent anywhere.
 
-## 메뉴바 메뉴
+## Requirements
 
-| 항목 | 설명 |
+- A Mac with Apple silicon
+- macOS 26 or later
+- Xcode or the Xcode Command Line Tools. There's no ready-made download yet, so you build NotiMirror yourself with one command.
+
+## Install
+
+1. Download the source and build it:
+
+   ```bash
+   git clone <this-repo-url> NotiMirror
+   cd NotiMirror
+   ./build.sh --install
+   ```
+
+   If you see an error about `swiftc`, install the Command Line Tools first with `xcode-select --install`.
+
+2. NotiMirror opens and asks for **Screen Recording** permission. Go to System Settings › Privacy & Security › Screen & System Audio Recording and turn on **NotiMirror**.
+3. If macOS asks, choose **Quit & Reopen**.
+4. A bell icon appears in the menu bar. From the next notification on, banners show up on all your monitors.
+
+> **Tip:** If you have an Apple Development certificate set up in Xcode, the build is signed with it automatically. Then macOS won't ask for permission again each time you rebuild.
+
+## Using NotiMirror
+
+Click the bell icon in the menu bar. The menu is currently in Korean.
+
+| Menu item | What it does |
 |---|---|
-| 일시 정지 | 복제를 잠시 끈다 |
-| 로그인 시 자동 실행 | 로그인 항목으로 등록한다 |
-| 테스트 알림 보내기 | NotiMirror 이름으로 실제 알림을 보내 전체 흐름을 확인한다 (처음 한 번 알림 권한을 묻는다) |
-| 로그 보기 | `~/Library/Logs/NotiMirror.log` (알림 내용은 기록하지 않음) |
+| 일시 정지 (Pause) | Temporarily stop showing copies |
+| 로그인 시 자동 실행 (Open at login) | Start NotiMirror automatically when you log in |
+| 테스트 알림 보내기 (Send test notification) | Send a test notification to check that copies appear on your other monitors |
+| 로그 보기 (Show log) | Open the log file, which is useful when reporting a problem |
+| NotiMirror 종료 (Quit NotiMirror) | Quit the app |
 
-## 알려진 한계
+## FAQ
 
-- 원본이 뜬 화면에는 복제하지 않으므로, 맥북만 쓸 때는 아무것도 하지 않습니다.
+**Why does NotiMirror need Screen Recording permission?**
+To show an identical copy, NotiMirror needs to see the notification banner. It looks only at the banner, only while the banner is on screen, and never saves or sends anything.
 
-- 알림 센터 창 구조는 Apple이 공개한 것이 아니어서, macOS 업데이트 후 동작이 깨질 수 있습니다.
-- 복제본은 그림이라 클릭할 수 없습니다(클릭은 아래 창으로 통과). 손쉬운 사용 권한을 쓰면 원본을 누른 것처럼 동작하게 만들 수 있습니다.
-- 사용자가 알림 센터 패널을 직접 열면 복제하지 않도록, 화면 아래쪽까지 그림이 차 있는지로 추정해 걸러냅니다.
+**Nothing happens when I use only my MacBook.**
+That's expected. NotiMirror adds copies to your *other* monitors, and the original is already on your MacBook.
+
+**Can I click a copy?**
+Not yet. Clicks pass through a copy to whatever is behind it. To open the notification, click the original banner.
+
+**macOS asked me again whether to allow screen recording.**
+macOS may check in on screen recording apps from time to time. Choose **Allow** to keep NotiMirror working.
+
+**It stopped working after a macOS update.**
+NotiMirror depends on how macOS shows notifications, which can change between versions. Please open an issue and attach the log (menu › 로그 보기).
+
+## Uninstall
+
+1. From the menu bar, turn off **로그인 시 자동 실행 (Open at login)** if it's on, then choose **NotiMirror 종료 (Quit)**.
+2. Delete the app and its data:
+
+   ```bash
+   rm -rf ~/Applications/NotiMirror.app
+   rm -f ~/Library/Logs/NotiMirror.log
+   defaults delete local.notimirror
+   ```
+
+3. Remove NotiMirror from System Settings › Privacy & Security › Screen & System Audio Recording.
+
+## Status
+
+NotiMirror is an early prototype. It has been tested only on macOS 27.0.1 with an Apple silicon Mac. Feedback and bug reports are welcome.

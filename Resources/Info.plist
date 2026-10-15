@@ -8,6 +8,8 @@
 	<string>NotiMirror</string>
 	<key>CFBundleExecutable</key>
 	<string>NotiMirror</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
 	<string>local.notimirror</string>
 	<key>CFBundleName</key>
