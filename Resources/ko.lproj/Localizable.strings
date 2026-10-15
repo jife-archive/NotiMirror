@@ -1,0 +1,16 @@
+/* 메뉴바 상태 줄 */
+"Screen Recording permission needed" = "화면 기록 권한 필요";
+"Paused" = "일시 정지됨";
+"Running · %lld displays" = "작동 중 · 모니터 %lld대";
+
+/* 메뉴 항목 */
+"Open Screen Recording Settings…" = "화면 기록 권한 설정 열기…";
+"Pause" = "일시 정지";
+"Open at Login" = "로그인 시 자동 실행";
+"Send Test Notification" = "테스트 알림 보내기";
+"Show Log" = "로그 보기";
+"Quit NotiMirror" = "NotiMirror 종료";
+
+/* 테스트 알림 */
+"NotiMirror Test" = "NotiMirror 테스트";
+"If this notification also appears on your other displays, everything is working." = "다른 모니터에도 이 알림이 똑같이 보이면 정상이에요.";

@@ -54,15 +54,15 @@ NotiMirror fixes that. When a banner appears, the same banner shows up in the to
 
 ## Using NotiMirror
 
-Click the bell icon in the menu bar. The menu is currently in Korean.
+Click the bell icon in the menu bar. The menu follows your macOS language (English or Korean).
 
 | Menu item | What it does |
 |---|---|
-| 일시 정지 (Pause) | Temporarily stop showing copies |
-| 로그인 시 자동 실행 (Open at login) | Start NotiMirror automatically when you log in |
-| 테스트 알림 보내기 (Send test notification) | Send a test notification to check that copies appear on your other monitors |
-| 로그 보기 (Show log) | Open the log file, which is useful when reporting a problem |
-| NotiMirror 종료 (Quit NotiMirror) | Quit the app |
+| Pause | Temporarily stop showing copies |
+| Open at Login | Start NotiMirror automatically when you log in |
+| Send Test Notification | Send a test notification to check that copies appear on your other monitors |
+| Show Log | Open the log file, which is useful when reporting a problem |
+| Quit NotiMirror | Quit the app |
 
 ## FAQ
 
@@ -79,11 +79,11 @@ Not yet. Clicks pass through a copy to whatever is behind it. To open the notifi
 macOS may check in on screen recording apps from time to time. Choose **Allow** to keep NotiMirror working.
 
 **It stopped working after a macOS update.**
-NotiMirror depends on how macOS shows notifications, which can change between versions. Please open an issue and attach the log (menu › 로그 보기).
+NotiMirror depends on how macOS shows notifications, which can change between versions. Please open an issue and attach the log (menu › Show Log).
 
 ## Uninstall
 
-1. From the menu bar, turn off **로그인 시 자동 실행 (Open at login)** if it's on, then choose **NotiMirror 종료 (Quit)**.
+1. From the menu bar, turn off **Open at Login** if it's on, then choose **Quit NotiMirror**.
 2. Delete the app and its data:
 
    ```bash

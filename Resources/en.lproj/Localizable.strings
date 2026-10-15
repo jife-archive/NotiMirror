@@ -1,0 +1,15 @@
+/* 메뉴바 상태 줄 */
+"Screen Recording permission needed" = "Screen Recording permission needed";
+"Paused" = "Paused";
+
+/* 메뉴 항목 */
+"Open Screen Recording Settings…" = "Open Screen Recording Settings…";
+"Pause" = "Pause";
+"Open at Login" = "Open at Login";
+"Send Test Notification" = "Send Test Notification";
+"Show Log" = "Show Log";
+"Quit NotiMirror" = "Quit NotiMirror";
+
+/* 테스트 알림 */
+"NotiMirror Test" = "NotiMirror Test";
+"If this notification also appears on your other displays, everything is working." = "If this notification also appears on your other displays, everything is working.";

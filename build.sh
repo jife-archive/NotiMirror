@@ -13,6 +13,7 @@ swiftc -O -swift-version 5 -target arm64-apple-macos26.0 \
   Sources/*.swift -o "$APP/Contents/MacOS/NotiMirror"
 cp Resources/Info.plist "$APP/Contents/Info.plist"
 cp Resources/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
+cp -R Resources/*.lproj "$APP/Contents/Resources/"
 
 # 개발 인증서로 서명해야 재빌드해도 화면 기록 권한이 유지된다 (ad-hoc 서명은 빌드마다 권한이 풀림).
 IDENTITY="${SIGN_IDENTITY:-$(security find-identity -v -p codesigning | awk '/Apple Development/ {print $2; exit}')}"

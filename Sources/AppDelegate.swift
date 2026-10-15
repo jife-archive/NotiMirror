@@ -74,30 +74,30 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, UNUser
 
         let statusLine: String
         if !hasScreenAccess {
-            statusLine = "화면 기록 권한 필요"
+            statusLine = String(localized: "Screen Recording permission needed")
         } else if paused {
-            statusLine = "일시 정지됨"
+            statusLine = String(localized: "Paused")
         } else {
-            statusLine = "작동 중 · 모니터 \(NSScreen.screens.count)대"
+            statusLine = String(localized: "Running · \(NSScreen.screens.count) displays")
         }
         let statusMenuItem = NSMenuItem(title: statusLine, action: nil, keyEquivalent: "")
         statusMenuItem.isEnabled = false
         menu.addItem(statusMenuItem)
         if !hasScreenAccess {
-            menu.addItem(item("화면 기록 권한 설정 열기…", #selector(openScreenRecordingSettings)))
+            menu.addItem(item(String(localized: "Open Screen Recording Settings…"), #selector(openScreenRecordingSettings)))
         }
 
         menu.addItem(.separator())
-        menu.addItem(item("일시 정지", #selector(togglePaused), on: paused))
-        menu.addItem(item("로그인 시 자동 실행", #selector(toggleLoginItem),
+        menu.addItem(item(String(localized: "Pause"), #selector(togglePaused), on: paused))
+        menu.addItem(item(String(localized: "Open at Login"), #selector(toggleLoginItem),
                           on: SMAppService.mainApp.status == .enabled))
 
         menu.addItem(.separator())
-        menu.addItem(item("테스트 알림 보내기", #selector(sendTestNotification)))
-        menu.addItem(item("로그 보기", #selector(openLog)))
+        menu.addItem(item(String(localized: "Send Test Notification"), #selector(sendTestNotification)))
+        menu.addItem(item(String(localized: "Show Log"), #selector(openLog)))
 
         menu.addItem(.separator())
-        let quit = NSMenuItem(title: "NotiMirror 종료", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        let quit = NSMenuItem(title: String(localized: "Quit NotiMirror"), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         quit.target = NSApp
         menu.addItem(quit)
     }
@@ -147,8 +147,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, UNUser
                 return
             }
             let content = UNMutableNotificationContent()
-            content.title = "NotiMirror 테스트"
-            content.body = "다른 모니터에도 이 알림이 똑같이 보이면 정상이에요."
+            content.title = String(localized: "NotiMirror Test")
+            content.body = String(localized: "If this notification also appears on your other displays, everything is working.")
             UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil))
         }
     }
