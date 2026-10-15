@@ -97,3 +97,7 @@ NotiMirror는 macOS가 알림을 띄우는 방식에 기대고 있어서, 버전
 ## 상태
 
 NotiMirror는 초기 프로토타입이에요. 지금까지 Apple Silicon Mac의 macOS 27.0.1에서만 테스트했습니다. 의견이나 버그 제보는 언제든 환영해요.
+
+## 라이선스
+
+[MIT](LICENSE)

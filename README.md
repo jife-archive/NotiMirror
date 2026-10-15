@@ -97,3 +97,7 @@ NotiMirror depends on how macOS shows notifications, which can change between ve
 ## Status
 
 NotiMirror is an early prototype. It has been tested only on macOS 27.0.1 with an Apple silicon Mac. Feedback and bug reports are welcome.
+
+## License
+
+[MIT](LICENSE)
